@@ -10,8 +10,18 @@
 
 @implementation TUSTaxman
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _records = [NSDictionary new];
+    }
+    return self;
+}
+
 - (void)receiveTaxes:(NSDecimalNumber *)taxes sender:(id)sender {
-    //...
+    NSMutableDictionary *dict = [self.records mutableCopy];
+//    [dict setObject:taxes forKey:sender];
+    self.records = [dict copy];
 }
 
 @end
